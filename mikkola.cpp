@@ -9,8 +9,8 @@ template <typename T> int sign(T val) {
  * This is based on [Mikkola 1987].
  *	adsabs.harvard.edu/full/1987CeMec..40..329M
  *
- * Disclaimer :	I am not the original author of this code, 
- *		although I have made significant changes to it.
+ * Disclaimer : I am not the original author of this code, although I have made significant changes to it.
+ *              AFAIK this was written by Manuel Tessmer.
  *			- Abhimanyu
  *
 */
