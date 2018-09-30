@@ -10,13 +10,13 @@
 
 
 /*
- * Solves the elliptical Kepler equation.
+ * Solves the hyperbolic Kepler equation.
  *
  * l	is mean anomaly	in rad
  * e	is eccentricity
  *
  * Returns the eccentric anomaly u which is the solution of the Kepler equation.
- * 	l = u - e sin(u)
+ * 	l = e sinh(u) - u
  */
 double MIKKOLAh(double l, double e){		
 
