@@ -5,6 +5,8 @@ CXXFLAGS = -Wall -fPIC
 LDFLAGS = -lm
 PYTHONI = -I/usr/include/python3.6/
 
+.PHONY: all
+all: tests python_interface
 
 .PHONY: tests
 tests: test_ellipse test_hyperbola
