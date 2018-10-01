@@ -1,0 +1,7 @@
+*.o
+*wrap.cxx
+*.so
+mikkola.py
+__pycache__/*
+test_ellipse
+test_hyperbola
