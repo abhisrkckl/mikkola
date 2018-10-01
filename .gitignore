@@ -5,3 +5,6 @@ mikkola.py
 __pycache__/*
 test_ellipse
 test_hyperbola
+*.txt
+*.dat
+*.pyc

@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This is an implementation of Mikkola's method to solve Kepler's equation.
+This is an implementation of Mikkola's method to solve the Kepler equation.
 (Ref: [Mikkola, 1987](http://adsabs.harvard.edu/full/1987CeMec..40..329M))
 
 This package defines two functions:
@@ -24,7 +24,7 @@ This package defines two functions:
 > make python_interface
 
 Note that the by default this creates a wrapper for Python3. 
-To make a wrapper for Python2 change the PYTHONI variable in the Makefile to the location of Python.h in your Python2 installation.
+To make a wrapper for Python2, change the PYTHONI variable in the Makefile to the location of Python.h in your Python2 installation.
 
 - To build the C++ example programs, type
 > make tests
