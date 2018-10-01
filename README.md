@@ -5,6 +5,8 @@
 This is an implementation of Mikkola's method to solve Kepler's equation.
 (Ref: <adsabs.harvard.edu/full/1987CeMec..40..329M>)
 
+[I'm an inline-style link](https://www.google.com)
+
 This package defines two functions:
   
 1)  double MIKKOLA(double l, double e)		--- Solves the Elliptic Kepler equation.
