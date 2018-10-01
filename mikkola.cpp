@@ -9,10 +9,6 @@ template <typename T> int sign(T val) {
  * This is based on [Mikkola 1987].
  *	adsabs.harvard.edu/full/1987CeMec..40..329M
  *
- * Disclaimer : I am not the original author of this file, although I have made significant changes to it.
- *              AFAIK this was originally written by Manuel Tessmer.
- *			- Abhimanyu
- *
 */
 
 
@@ -27,25 +23,23 @@ template <typename T> int sign(T val) {
  */
 double MIKKOLA(double l, double e){
 
+	constexpr double Pi=M_PI, TwoPi=2*M_PI;
+
 	if(e<0 || e>=1){
 		//fprintf(stderr,"ERROR: The eccentricity of an ellipse must lie within [0,1).\n");
 		return NAN;
 	}
 
-	constexpr double Pi=M_PI, TwoPi=2*M_PI;
-
-	double ND = (l>=0)	?floor(l/TwoPi)	:ceil(l/TwoPi);
-
 	int sgn = sign(l);
-	l=fabs(l);
-	if(l > TwoPi) {
-		l -= floor(l/TwoPi)*TwoPi;
-	}
+	l*=sgn;			// l>0
+	
+	int ncycles = (int)(l/TwoPi);
+	l -= TwoPi*ncycles;	// 0<=l<2*pi
 
-	int SIGN2 = (l<Pi)	?1	:-1;
-	if(SIGN2==-1) {
-		l = (TwoPi - l);
-	}
+	bool flag = l>Pi;
+	if(flag){
+		l = TwoPi-l;	// 0<=l<=pi
+	}	
 
 	double 	alpha  = (1-e)/(4*e + 0.5),
 		alpha3 = alpha*alpha*alpha;
@@ -63,14 +57,14 @@ double MIKKOLA(double l, double e){
 	double E0 = (l + e*(3*w - 4*w3));
 	double u = E0 ;
 	
-	double  su  = sin(u);
-	double  cu  = cos(u);
+	double  esu  = e*sin(u);
+	double  ecu  = e*cos(u);
 	
-	double	fu  = (u - e*su - l),
-		f1u = (1 - e*cu),
-		f2u = (e*su),
-		f3u = (e*cu),
-		f4u =-(e*su);
+	double	fu  = (u - esu - l),
+		f1u = (1 - ecu),
+		f2u = (esu),
+		f3u = (ecu),
+		f4u =-(esu);
 
 	double	u1 = -fu/ f1u,
 		u2 = -fu/(f1u + f2u*u1/2),
@@ -78,13 +72,10 @@ double MIKKOLA(double l, double e){
 		u4 = -fu/(f1u + f2u*u3/2 + f3u*(u3*u3)/6.0 + f4u*(u3*u3*u3)/24.0),
 		xi = (E0 + u4);
 	
-	double sol = (SIGN2>0)	?xi	:(TwoPi-xi);
+	double sol = flag	?(TwoPi-xi)	:xi;
 	
-	if(sgn<0) {
-		sol = -sol;
-	}
+	u = sgn*(sol + ncycles*TwoPi);
 	
-	u = (sol + ND*TwoPi);
 	return u;
 }
 
