@@ -7,12 +7,12 @@ pi = np.pi
 e = 0.4
 u0s = np.linspace(-4*pi,4*pi,1000)
 ls  = u0s - e*np.sin(u0s)
-us  = np.zeros_like(ls)
+#us  = np.zeros_like(ls)
 
-for i,l in enumerate(ls):
-    us[i] = MIKKOLA(l,e)
+#for i,l in enumerate(ls):
+#    us[i] = MIKKOLA(l,e)
 
-#us = list(map(lambda l: MIKKOLA(l,e), ls))
+us = np.array(tuple(map(lambda l: MIKKOLA(l,e), ls)))
     
 plt.plot(ls,np.abs((u0s-us)/us))
 plt.xlabel("l")
