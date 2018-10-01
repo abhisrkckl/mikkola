@@ -21,12 +21,13 @@ This package defines two functions:
 
 ## Building
 - To build the python interface, type
->> make python_interface
+> make python_interface
+
 Note that the by default this creates a wrapper for Python3. 
 To make a wrapper for Python2 change the PYTHONI variable in the Makefile to the location of Python.h in your Python2 installation
 
 - To build the C++ example programs, type
->> make tests
+> make tests
 
 
 ## Python interface
