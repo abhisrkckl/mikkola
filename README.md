@@ -3,7 +3,7 @@
 ## Introduction
 
 This is an implementation of Mikkola's method to solve Kepler's equation.
-(Ref: [Mikkola, 1987](adsabs.harvard.edu/full/1987CeMec..40..329M))
+(Ref: [Mikkola, 1987](http://adsabs.harvard.edu/full/1987CeMec..40..329M))
 
 This package defines two functions:
   
