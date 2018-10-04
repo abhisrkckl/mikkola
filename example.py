@@ -20,6 +20,7 @@ plt.title("Elliptic")
 plt.xlabel("l")
 plt.ylabel("Fractional error")
 plt.grid()
+plt.semilogy()
 plt.show()
 
 #***************
@@ -34,4 +35,5 @@ plt.title("Hyperbolic")
 plt.xlabel("l")
 plt.ylabel("Fractional error")
 plt.grid()
+plt.semilogy()
 plt.show()
