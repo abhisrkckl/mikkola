@@ -79,3 +79,14 @@ double MIKKOLA(double l, double e){
 	return u;
 }
 
+std::vector<double> MIKKOLA(std::vector<double> ls, double e){
+	
+	int length = ls.size();
+	std::vector<double> us(length);
+
+	for(int i=0; i<length; i++){
+		us[i] = MIKKOLA(ls[i],e);
+	}
+
+	return us;
+}

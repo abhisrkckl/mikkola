@@ -37,7 +37,7 @@ double MIKKOLAh(double l, double e){
 		ds= 0.071*s5/((1+0.45*s*s)*(1+4*s*s)*e);
 	double 	w = s + ds;
 	
-	double u = 3*log(s+sqrt(1+s*s));
+	double u = 3*log(w+sqrt(1+w*w));
 	
 	double eshu = e*sinh(u);
 	double echu = e*cosh(u);
@@ -59,3 +59,14 @@ double MIKKOLAh(double l, double e){
 	return xi;
 }
 
+std::vector<double> MIKKOLAh(std::vector<double> ls, double e){
+	
+	int length = ls.size();
+	std::vector<double> us(length);
+
+	for(int i=0; i<length; i++){
+		us[i] = MIKKOLAh(ls[i],e);
+	}
+
+	return us;
+}
