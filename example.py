@@ -1,4 +1,4 @@
-from mikkola import MIKKOLA
+from mikkola import *
 import numpy as np
 from matplotlib import pyplot as plt
 
@@ -12,9 +12,25 @@ ls  = u0s - e*np.sin(u0s)
 #for i,l in enumerate(ls):
 #    us[i] = MIKKOLA(l,e)
 
-us = np.array(tuple(map(lambda l: MIKKOLA(l,e), ls)))
+#us = np.array(tuple(map(lambda l: MIKKOLA(l,e), ls)))
+us = MIKKOLA(ls,e)
     
 plt.plot(ls,np.abs((u0s-us)/us))
+plt.title("Elliptic")
+plt.xlabel("l")
+plt.ylabel("Fractional error")
+plt.grid()
+plt.show()
+
+#***************
+
+e = 1.1
+u0s = np.linspace(-5,5,1000)
+ls = e*np.sinh(u0s) - u0s
+us = MIKKOLAh(ls,e)
+
+plt.plot(ls,np.abs((u0s-us)/us))
+plt.title("Hyperbolic")
 plt.xlabel("l")
 plt.ylabel("Fractional error")
 plt.grid()
