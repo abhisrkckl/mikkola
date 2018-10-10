@@ -1,4 +1,5 @@
 #include <math.h>
+#include <stdio.h>
 #include "mikkola.h"
 
 template <typename T> int sign(T val) {
@@ -81,12 +82,31 @@ double MIKKOLA(double l, double e){
 
 std::vector<double> MIKKOLA(std::vector<double> ls, double e){
 	
-	int length = ls.size();
+	size_t length = ls.size();
 	std::vector<double> us(length);
 
-	for(int i=0; i<length; i++){
+	for(unsigned int i=0; i<length; i++){
 		us[i] = MIKKOLA(ls[i],e);
 	}
 
 	return us;
+}
+
+std::vector<double> MIKKOLA(std::vector<double> ls, std::vector<double> es){
+	
+        size_t length = ls.size();
+
+	if(es.size() != length){
+		fprintf(stderr,"ERROR: Vector size mismatch. Returning empty vector.");
+		std::vector<double> us(0);
+		return us;
+	}
+	else{
+		std::vector<double> us(length);
+
+		for(unsigned int i=0; i<length; i++){
+                	us[i] = MIKKOLA(ls[i],es[i]);
+	        }
+		return us;
+	}
 }

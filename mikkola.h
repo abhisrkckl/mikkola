@@ -9,4 +9,7 @@ double MIKKOLAh(double l, double e);
 std::vector<double> MIKKOLA(std::vector<double> ls, double e);
 std::vector<double> MIKKOLAh(std::vector<double> ls, double e);
 
+std::vector<double> MIKKOLA(std::vector<double> ls, std::vector<double> es);
+std::vector<double> MIKKOLAh(std::vector<double> ls, std::vector<double> es);
+
 #endif
