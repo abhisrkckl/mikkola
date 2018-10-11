@@ -26,8 +26,12 @@ double MIKKOLA(double l, double e){
 
 	constexpr double Pi=M_PI, TwoPi=2*M_PI;
 
+	if(e==0 || l==0){
+		return l;
+	}
+
 	if(e<0 || e>=1){
-		//fprintf(stderr,"ERROR: The eccentricity of an ellipse must lie within [0,1).\n");
+		fprintf(stderr,"ERROR: The eccentricity of an ellipse must lie within [0,1).\n");
 		return NAN;
 	}
 

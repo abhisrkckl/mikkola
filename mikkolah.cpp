@@ -22,6 +22,7 @@
 double MIKKOLAh(double l, double e){		
 
 	if(e<=1){
+		fprintf(stderr,"The eccentricity must be greater than 1.");
 		return NAN;
 	}
 
