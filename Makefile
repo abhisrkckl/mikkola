@@ -15,7 +15,11 @@ tests: test_ellipse test_hyperbola
 
 python_interface: lib
 
-lib: _mikkola.so
+lib: _mikkola.so libmikkola.so
+
+libmikkola.so: mikkola.o mikkolah.o
+	$(CXX) -shared -o $@ $^ $(CXXFLAGS) $(LDFLAGS)
+	chmod -x $@
 
 _mikkola.so: mikkola.o mikkolah.o mikkola_wrap.o
 	$(CXX) -shared -o $@ $^ $(CXXFLAGS) $(LDFLAGS)
